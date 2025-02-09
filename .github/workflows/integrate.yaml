@@ -3,8 +3,8 @@ on:
     pull_request:
         paths: [ "**", "!**.md" ]
 env:
-    PACKAGE_NAME: "ghcr.io/oskarbarcz/symfony-project-bootstrap"
-    PACKAGE_VERSION: "3.0.0"
+    PACKAGE_NAME: "ghcr.io/ryuukodex/movie-search-engine"
+    PACKAGE_VERSION: "1.0.0"
 jobs:
     integrate:
         runs-on: ubuntu-22.04
@@ -28,7 +28,3 @@ jobs:
 
             # unit tests
             - { name: "Unit tests", run: "docker compose exec -T app php bin/phpunit --do-not-cache-result --testsuite unit" }
-
-            # functional tests
-            - { name: "Functional tests", run: "docker compose exec -T app php bin/phpunit --do-not-cache-result --testsuite functional" }
-

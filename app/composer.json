@@ -1,25 +1,27 @@
 {
-    "version": "3.0.0",
-    "description": "Symfony project bootstrap",
+    "version": "1.0.0",
+    "description": "Movie search engine",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.3",
         "ext-ctype": "*",
         "ext-curl": "*",
         "ext-iconv": "*",
-        "doctrine/doctrine-bundle": "^2.6",
-        "doctrine/doctrine-migrations-bundle": "^3.2",
-        "doctrine/orm": "^2.11",
-        "symfony/dotenv": "6.3.*",
+        "phpdocumentor/reflection-docblock": "^5.6",
+        "phpstan/phpdoc-parser": "^2.0",
+        "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.3.*",
-        "symfony/http-client": "6.3.*",
+        "symfony/framework-bundle": "7.2.*",
+        "symfony/http-client": "7.2.*",
         "symfony/monolog-bundle": "^3.8",
-        "symfony/runtime": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/property-access": "7.2.*",
+        "symfony/property-info": "7.2.*",
+        "symfony/runtime": "7.2.*",
+        "symfony/serializer": "7.2.*",
+        "symfony/yaml": "7.2.*"
     },
     "config": {
         "allow-plugins": {
@@ -64,14 +66,9 @@
             "@auto-scripts"
         ],
         "run-unit-tests": "php bin/phpunit --do-not-cache-result --testsuite unit",
-        "run-functional-tests": "php bin/phpunit --do-not-cache-result --testsuite functional",
         "run-lint-check": "./vendor/bin/php-cs-fixer fix --dry-run --using-cache no",
-        "run-lint-fix": "./vendor/bin/php-cs-fixer fix",
-        "run-phpstan-analysis": "./vendor/bin/phpstan analyse",
-        "run-all-tests": [
-            "@run-unit-tests",
-            "@run-functional-tests"
-        ]
+        "run-lint-fix": "./vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "run-phpstan-analysis": "./vendor/bin/phpstan analyse"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -79,7 +76,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.3.*"
+            "require": "7.2.*"
         }
     },
     "require-dev": {
